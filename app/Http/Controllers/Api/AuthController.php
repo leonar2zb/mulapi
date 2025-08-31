@@ -25,4 +25,11 @@ class AuthController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function logout(Request $request){
+         /** @var TToken $token */
+        $token = $request->user()->currentAccessToken();
+        $token?->delete();
+        return response()->json(['message' => 'Bye!'], 200);
+    }
 }
