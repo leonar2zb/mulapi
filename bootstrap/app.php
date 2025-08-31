@@ -17,9 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         // Customizing error response when not authenticated
         $exceptions->render(function (\Illuminate\Auth\AuthenticationException $e, $request) {
-        return response()->json([
-            'error' => 'You are not authenticated. A valid token is required!'
-        ], 401);
-    });
+            return response()->json([
+                'error' => 'You are not authenticated. A valid token is required!',
+            ], 401);
+        });
 
     })->create();
