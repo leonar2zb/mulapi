@@ -8,6 +8,16 @@ class UserDetail extends Model
 {
     //
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'whatsapp',
+    ];
+
+
+    /**
      * Get the one-to-one relationship with the User model.
      *
      * This relation represents the user profile primary information
