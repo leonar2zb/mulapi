@@ -24,7 +24,7 @@ class StoreUserRequest extends FormRequest
         return [
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed',
-            'whatsapp' => 'sometimes|nullable|regex:/^\+[0-9]{7,15}$/'  // optional but must start with +, only digits and 15 digits max
+            'whatsapp' => 'sometimes|nullable|regex:/^\+[1-9][0-9]{6,14}$/'  // optional but must start with + amd a non zero digit then up to 14 digits
         ];
     }
 }
