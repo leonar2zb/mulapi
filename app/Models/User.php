@@ -46,4 +46,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the one-to-one relationship with the UserDetail model.
+     *
+     * This relation represents the extended profile information
+     * associated with the user, such as contact details, address, etc.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function detail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }

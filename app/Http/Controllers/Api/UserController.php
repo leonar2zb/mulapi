@@ -15,8 +15,10 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $user = new User(['email' => $data['email'], 'password' => bcrypt($data['password'])]);
-        //$user = new User(Arr::only($data, ['email', 'password']));
         $user->save();
+        if (isset($data['whatsapp']))
+            $user->detail()->create(['whatsapp' => $data['whatsapp']]);
+
         return response()->json([
             'message' => 'Usuario creado'
         ], 201);
